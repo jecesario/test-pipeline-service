@@ -34,6 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      - uses: actions/checkout@v3
       - name: Use Node 16
         uses: actions/setup-node@v2
         with:
@@ -53,6 +54,7 @@ jobs:
     needs: deploy-dev
     environment: uat
     steps:
+      - uses: actions/checkout@v3
       - name: Use Node 16
         uses: actions/setup-node@v2
         with:
@@ -73,6 +75,7 @@ jobs:
     needs: deploy-uat
     environment: prod
     steps:
+      - uses: actions/checkout@v3
       - name: Use Node 16
         uses: actions/setup-node@v2
         with:
