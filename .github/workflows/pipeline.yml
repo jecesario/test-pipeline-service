@@ -15,6 +15,17 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
+  snyk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/maven@master # Change the action accordingly to the programming language
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          command: monitor
+
   build:
     name: Build & Validation
     runs-on: ubuntu-latest
@@ -57,7 +68,6 @@ jobs:
         sonar_branch: "main"
         sonar_token: ${{ secrets.SONAR_TOKEN }}
         project_key: "jecesario_test-pipeline-service"
-
 
   deploy-dev:
     name: Deploy Dev
