@@ -10,4 +10,10 @@ public class MessageTest {
         Message message = new Message();
         Assertions.assertEquals("Hello Jean!", message.getMessage("Jean"));
     }
+
+    @Test
+    void testNameEmpty() {
+        Message message = new Message();
+        Assertions.assertEquals("Please provide a name", message.getMessage(""));
+    }
 }
