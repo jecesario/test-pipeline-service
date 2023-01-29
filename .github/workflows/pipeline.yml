@@ -50,6 +50,15 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=jecesario_test-pipeline-service
 
+    - name: Sonar Build Breaker
+      uses: jkumar19/sonar-build-breaker@v1.0.0
+      with:
+        sonar_url: "https://sonarcloud.io"
+        sonar_branch: "main"
+        sonar_token: ${{ secrets.SONAR_TOKEN }}
+        project_key: "jecesario_test-pipeline-service"
+
+
   deploy-dev:
     name: Deploy Dev
     runs-on: ubuntu-latest
