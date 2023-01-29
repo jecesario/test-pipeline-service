@@ -3,7 +3,7 @@ package com.example.testpipelineservice;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class MessageTest {
+class MessageTest {
 
     @Test
     void testName() {
